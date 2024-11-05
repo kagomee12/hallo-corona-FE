@@ -44,7 +44,7 @@ const ReservationDataComponent = () => {
         Reservasi Data
       </Typography>
       <Box
-        width={"80%"}
+        width={{ xs: "95%", md: "80%", lg: "80%" }}
         margin={"auto"}
         sx={{
           boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.2)",
@@ -55,26 +55,46 @@ const ReservationDataComponent = () => {
         <Box width={"100%"}>
           <Box
             sx={{
-              paddingTop: "20px",
-              paddingBottom: "20px",
+              paddingTop: { xs: "10px", md: "20px", lg: "20px" },
+              paddingBottom: { xs: "10px", md: "20px", lg: "20px" },
               borderBottom: "1px solid #E0E0E0",
-              paddingLeft: "20px",
+              paddingLeft: { xs: "10px", md: "20px", lg: "20px" },
             }}
           >
             <Stack direction="row" alignItems={"start"}>
-              <Typography width={"25%"} fontWeight={700}>
+              <Typography
+                width={"25%"}
+                fontWeight={700}
+                fontSize={{ xs: "12px", md: "18px", lg: "18px" }}
+              >
                 Name
               </Typography>
-              <Typography width={"20%"} fontWeight={700}>
+              <Typography
+                width={"20%"}
+                fontWeight={700}
+                fontSize={{ xs: "12px", md: "18px", lg: "18px" }}
+              >
                 Date
               </Typography>
-              <Typography width={"25%"} fontWeight={700}>
+              <Typography
+                width={"25%"}
+                fontWeight={700}
+                fontSize={{ xs: "12px", md: "18px", lg: "18px" }}
+              >
                 Subject
               </Typography>
-              <Typography width={"15%"} fontWeight={700}>
+              <Typography
+                width={"15%"}
+                fontWeight={700}
+                fontSize={{ xs: "12px", md: "18px", lg: "18px" }}
+              >
                 Status
               </Typography>
-              <Typography width={"15%"} align="center">
+              <Typography
+                width={"15%"}
+                align="center"
+                fontSize={{ xs: "12px", md: "18px", lg: "18px" }}
+              >
                 Action
               </Typography>
             </Stack>
@@ -86,18 +106,32 @@ const ReservationDataComponent = () => {
                 backgroundColor: index % 2 === 0 ? "#F9F9F9" : "white",
                 paddingTop: "20px",
                 paddingBottom: "20px",
-                paddingLeft: "20px",
+                paddingLeft: { xs: "10px", md: "20px", lg: "20px" },
               }}
             >
               <Stack direction="row" justifyContent="center">
-                <Typography width={"25%"}>{item.fullname}</Typography>
-                <Typography width={"20%"}>
+                <Typography
+                  width={"25%"}
+                  fontSize={{ xs: "12px", md: "18px", lg: "18px" }}
+                >
+                  {item.fullname}
+                </Typography>
+                <Typography
+                  width={"20%"}
+                  fontSize={{ xs: "12px", md: "18px", lg: "18px" }}
+                >
                   {formatedDate(item.createdAt)}
                 </Typography>
-                <Typography width={"25%"}>{item.subject}</Typography>
+                <Typography
+                  width={"25%"}
+                  fontSize={{ xs: "12px", md: "18px", lg: "18px" }}
+                >
+                  {item.subject}
+                </Typography>
                 <Typography
                   width={"15%"}
                   fontWeight={700}
+                  fontSize={{ xs: "11px", md: "18px", lg: "18px" }}
                   color={
                     item.status === "pending"
                       ? "info"
@@ -117,6 +151,7 @@ const ReservationDataComponent = () => {
                   align="center"
                   onClick={() => handleOpen(item.id)}
                   sx={{ cursor: "pointer" }}
+                  fontSize={{ xs: "12px", md: "18px", lg: "18px" }}
                 >
                   <SearchIcon color="info" />
                 </Typography>

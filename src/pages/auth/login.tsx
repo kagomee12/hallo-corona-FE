@@ -31,7 +31,7 @@ export const LoginModal: React.FC<LoginModalProps> = ({
       aria-describedby="modal-modal-description"
       sx={{
         overflow: "auto",
-        maxHeight: "100vh",
+        maxHeight: "100vh"
       }}
       disableAutoFocus={true}
     >
@@ -55,7 +55,7 @@ export const LoginModal: React.FC<LoginModalProps> = ({
           <Box>
             <Stack gap={2}>
               <Stack>
-                <InputLabel htmlFor="email">Email</InputLabel>
+                <InputLabel htmlFor="email">Username</InputLabel>
                 <Controller
                   control={control}
                   name="username"
@@ -67,7 +67,7 @@ export const LoginModal: React.FC<LoginModalProps> = ({
                       <TextField
                         variant="outlined"
                         size="small"
-                        id="email"
+                        id="username"
                         value={value}
                         onChange={onChange}
                       />
@@ -93,6 +93,7 @@ export const LoginModal: React.FC<LoginModalProps> = ({
                         size="small"
                         id="password"
                         value={value}
+                        type="password"
                         onChange={onChange}
                       />
                       {error && (
@@ -145,7 +146,7 @@ const style = {
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: "450px",
+  width: { xs: "75%", md: "450px", lg: "450px" },
   bgcolor: "background.paper",
   boxShadow: 24,
   p: 2,

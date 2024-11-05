@@ -37,7 +37,11 @@ export const ArticleFormComponent = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit, onError)}>
-      <Box width={"80%"} margin={"auto"} sx={{ padding: "20px" }}>
+      <Box
+        width={{ xs: "90%", md: "80%", lg: "80%" }}
+        margin={"auto"}
+        sx={{ padding: "20px" }}
+      >
         <Typography
           variant="h4"
           color="#FF6185"
@@ -53,7 +57,13 @@ export const ArticleFormComponent = () => {
               {...register("title")}
               id="title"
               size="small"
+              error={!!errors.title}
               helperText={errors.title ? errors.title.message : null}
+              sx={{
+                "& .MuiFormHelperText-root": {
+                  color: (theme) => theme.palette.error.main,
+                },
+              }}
             />
           </Stack>
           <Stack>
@@ -98,7 +108,13 @@ export const ArticleFormComponent = () => {
               id="content"
               multiline
               rows={10}
+              error={!!errors.content}
               helperText={errors.content ? errors.content.message : null}
+              sx={{
+                "& .MuiFormHelperText-root": {
+                  color: (theme) => theme.palette.error.main,
+                },
+              }}
             />
           </Stack>
           <Button
@@ -107,7 +123,7 @@ export const ArticleFormComponent = () => {
               backgroundColor: "#FF6185",
               margin: "auto",
               textTransform: "none",
-              width: "20%",
+              width: { xs: "100%", md: "20%", lg: "20%" },
               alignSelf: "center",
             }}
             type="submit"

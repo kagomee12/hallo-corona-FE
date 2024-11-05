@@ -29,7 +29,7 @@ const Consulation = () => {
         Consultation
       </Typography>
       {data!.data.length > 0 &&
-        data?.data?.map((item: any) => <ConsulationComponent consultation={item} />)}
+        data?.data?.map((item) => <ConsulationComponent consultation={item} />)}
     </Box>
   );
 };

@@ -14,7 +14,7 @@ const App = () => {
   const theme = createTheme({
     typography: {
       fontFamily: [
-        '"Apple Color Emoji"'
+        '"Inter"'
       ].join(','),
     },
   });

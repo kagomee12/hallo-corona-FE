@@ -39,7 +39,7 @@ export const DetailArtikelComponent: React.FC<DetailArtikelProps> = ({
         {data?.data?.title}
       </Typography>
       <Typography fontSize={"14px"} fontWeight={400} color={"#6C6C6C"}>
-        {formatedDate(data?.data?.createdAt!)}
+        {formatedDate(data?.data?.createdAt ?? new Date())}
       </Typography>
       <Box display={"flex"} flexDirection={"row"} gap={1}>
         <Typography fontSize={"14px"} fontWeight={400} color={"#6C6C6C"}>

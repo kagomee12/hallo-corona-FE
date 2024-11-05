@@ -43,10 +43,13 @@
 
 
  .font-georama {
-  font-family: "Georama", sans-serif;
+  font-family: sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
   font-variation-settings:
     "wdth" 100;
 }
 
+::-webkit-scrollbar {
+  width: 0px;
+}

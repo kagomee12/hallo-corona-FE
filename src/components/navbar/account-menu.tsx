@@ -10,7 +10,7 @@ import Logout from "@mui/icons-material/Logout";
 import { User } from "../../types/store";
 import { useQueryClient } from "@tanstack/react-query";
 import { setAuthToken } from "../../services/api";
-import { useNavigate } from "react-router-dom";
+import { UseHandleNavigate } from "../../hooks/use-handle-navigate";
 
 interface IAccountMenuProps {
   user: User;
@@ -20,19 +20,7 @@ export const AccountMenu: React.FC<IAccountMenuProps> = ({
   user,
   setIsLogin,
 }) => {
-  const navigate = useNavigate();
-  const handleNavigate = () => {
-    if (user.role === "doctor") {
-      return navigate("/doctor/profile-doctor");
-    }
-    navigate("/profile-patient");
-  };
-  const handleNavigate2 = () => {
-    if (user.role === "doctor") {
-      return navigate("/doctor/article");
-    }
-    navigate("/consulation");
-  };
+  const {handleNavigate, handleNavigate2} = UseHandleNavigate(user);
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
   const queryClient = useQueryClient();
@@ -55,7 +43,6 @@ export const AccountMenu: React.FC<IAccountMenuProps> = ({
         <IconButton
           onClick={handleClick}
           size="small"
-          sx={{ ml: 2 }}
           aria-controls={open ? "account-menu" : undefined}
           aria-haspopup="true"
           aria-expanded={open ? "true" : undefined}
@@ -107,7 +94,7 @@ export const AccountMenu: React.FC<IAccountMenuProps> = ({
             <Avatar
               sx={{ backgroundColor: "#FF6185" }}
               src={user?.profilePic}
-            />{" "}
+            />
             Profile
           </ListItemIcon>
         </MenuItem>

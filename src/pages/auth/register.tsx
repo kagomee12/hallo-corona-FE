@@ -276,10 +276,10 @@ export const RegisterModal: React.FC<RegisterModalProps> = ({
 
 const style = {
   position: "absolute",
-  top: "90%",
+  top: "50%",
   left: "50%",
-  transform: "translate(-50%, -50%)",
-  width: "450px",
+  transform: "translate(-50%, -30%)",
+  width: { xs: "75%", md: "450px", lg: "450px" },
   bgcolor: "background.paper",
   boxShadow: 24,
   p: 2,

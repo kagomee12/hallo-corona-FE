@@ -14,7 +14,7 @@ export const ConsulationComponent: React.FC<IConsulationComponentProps> = ({
   const { data: user } = useGetUserMe();
 
   return (
-    <Box width={"60%"} margin={"auto"}>
+    <Box width={{ xs: "90%", md: "80%", lg: "60%" }} margin={"auto"}>
       <Box
         width={"100%"}
         borderRadius={4}
@@ -24,13 +24,13 @@ export const ConsulationComponent: React.FC<IConsulationComponentProps> = ({
       >
         <Stack
           direction={"row"}
-          spacing={2}
+          spacing={{ xs: 4, md: 2, lg: 2 }}
           alignItems={"center"}
           p={3}
           borderBottom={"1px solid #E0E0E0"}
         >
           <Box width={"10%"}>
-            <Avatar sx={{ width: 50, height: 50 }} src={user?.profilePic}/>
+            <Avatar sx={{ width: 50, height: 50 }} src={user?.profilePic} />
           </Box>
           <Stack width={"80%"}>
             <Typography fontWeight={600}>{consultation.Description}</Typography>
@@ -44,7 +44,7 @@ export const ConsulationComponent: React.FC<IConsulationComponentProps> = ({
           <Typography
             alignSelf={"start"}
             justifyContent={"end"}
-            width={"10%"}
+            width={{ xs: "20%", md: "10%" }}
             color={"#6C6C6C"}
           >
             {formatedDate(consultation.consultationDate)}
@@ -53,7 +53,7 @@ export const ConsulationComponent: React.FC<IConsulationComponentProps> = ({
         {consultation.message ? (
           <Stack
             direction={"row"}
-            spacing={2}
+            spacing={{ xs: 4, md: 2, lg: 2 }}
             alignItems={"center"}
             p={3}
             borderBottom={"1px solid #E0E0E0"}

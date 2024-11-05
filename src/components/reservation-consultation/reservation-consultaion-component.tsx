@@ -25,10 +25,12 @@ export const ReservationConsultaionComponent = () => {
       }, onError)}
     >
       <Box
-        width={"60%"}
         margin={"auto"}
-        sx={{ padding: "20px" }}
-        marginTop={"30px"}
+        sx={{
+          padding: "20px",
+          width: { xs: "90%", md: "80%", lg: "60%" },
+          marginTop: { xs: "0px", md: "30px", lg: "30px" },
+        }}
       >
         <Typography
           variant="h4"
@@ -85,8 +87,8 @@ export const ReservationConsultaionComponent = () => {
               )}
             />
           </Stack>
-          <Stack direction={"row"} gap={2}>
-            <Stack width={"50%"}>
+          <Stack gap={2} direction={{ xs: "column", md: "row", lg: "row" }}>
+            <Stack sx={{ width: { xs: "100%", md: "50%", lg: "50%" } }}>
               <InputLabel htmlFor="birthdate">Born Date</InputLabel>
               <Controller
                 name="birthdate"
@@ -110,7 +112,7 @@ export const ReservationConsultaionComponent = () => {
                 )}
               />
             </Stack>
-            <Stack width={"15%"}>
+            <Stack sx={{ width: { xs: "100%", md: "15%", lg: "15%" } }}>
               <InputLabel htmlFor="age">Age</InputLabel>
               <Controller
                 name="age"
@@ -134,7 +136,7 @@ export const ReservationConsultaionComponent = () => {
                 )}
               />
             </Stack>
-            <Stack width={"15%"}>
+            <Stack sx={{ width: { xs: "100%", md: "15%", lg: "15%" } }}>
               <InputLabel htmlFor="height">Height</InputLabel>
               <Controller
                 name="height"
@@ -158,7 +160,7 @@ export const ReservationConsultaionComponent = () => {
                 )}
               />
             </Stack>
-            <Stack width={"20%"}>
+            <Stack sx={{ width: { xs: "100%", md: "20%", lg: "20%" } }}>
               <InputLabel htmlFor="weight">Weight</InputLabel>
               <Controller
                 name="weight"

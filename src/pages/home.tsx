@@ -12,12 +12,16 @@ const Home = () => {
         flex={6}
         width={"100%"}
         display={"flex"}
-        justifyContent={"center"}
         alignItems={"center"}
         flexDirection={"column"}
         margin={"auto"}
       >
-        <Typography color="#FF6185" fontSize={"48px"} fontWeight={700} padding={4} >
+        <Typography
+          color="#FF6185"
+          fontWeight={700}
+          padding={4}
+          sx={{ fontSize: { xs: "24px", md: "48px", lg: "48px" } }}
+        >
           Artikel Hari ini
         </Typography>
         <ArticleContainer />

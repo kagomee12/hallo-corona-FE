@@ -32,7 +32,7 @@ export const ModalEditProfile: React.FC<IModalEditProfileProps> = ({
       >
         Loading...
       </Typography>
-    )
+    );
   }
 
   const { mutateAsync } = useUpdateUser(data ? data?.id.toString() : "");
@@ -45,7 +45,7 @@ export const ModalEditProfile: React.FC<IModalEditProfileProps> = ({
     const formData = new FormData();
     formData.append("profilePic", image);
     mutateAsync(formData);
-    handleClose
+    handleClose?.();
   };
   return (
     <Modal
@@ -78,15 +78,27 @@ export const ModalEditProfile: React.FC<IModalEditProfileProps> = ({
           </Typography>
           <Box
             display={"flex"}
-            gap={10}
+            gap={{ xs: 0, md: 10, lg: 10 }}
             width={"100%"}
             justifyContent={"center"}
-            flexDirection={"row"}
+            flexDirection={{ xs: "column", md: "row", lg: "row" }}
           >
-            <Box width={"40%"}>
-              <img src={pidture ? pidture : 'https://res.cloudinary.com/dq1pow2vn/image/upload/v1729420742/examplearticles_h3jamd.jpg'} width={"100%"} />
+            <Box width={{ xs: "100%", md: "40%", lg: "40%" }}>
+              <img
+                src={
+                  pidture
+                    ? pidture
+                    : "https://res.cloudinary.com/dq1pow2vn/image/upload/v1729420742/examplearticles_h3jamd.jpg"
+                }
+                width={"100%"}
+              />
             </Box>
-            <Box width={"60%"} display={"flex"} flexDirection={"column"}>
+            <Box
+              width={{ xs: "100%", md: "60%", lg: "60%" }}
+              display={"flex"}
+              flexDirection={"column"}
+              gap={{ xs: 4, md: 0, lg: 0 }}
+            >
               <Box display={"flex"} flexDirection={"column"} flex={1} gap={2}>
                 <InputLabel htmlFor="pidture">Ubah Gambar Profil</InputLabel>
                 <TextField
@@ -102,14 +114,19 @@ export const ModalEditProfile: React.FC<IModalEditProfileProps> = ({
                 alignSelf={"end"}
                 margin={"auto"}
                 width={"100%"}
-                gap={4}
+                justifyContent={{ xs: "space-around", md: "end", lg: "end" }}
+                gap={{ xs: 0, md: 4, lg: 4 }}
                 flex={1}
               >
                 <Button
                   variant="contained"
                   color="error"
                   onClick={handleClose}
-                  sx={{ marginTop: "auto", marginBottom: "auto" }}
+                  sx={{
+                    marginTop: "auto",
+                    marginBottom: "auto",
+                    width: { xs: "45%", md: "auto", lg: "auto" },
+                  }}
                   size="large"
                 >
                   Batal
@@ -117,10 +134,14 @@ export const ModalEditProfile: React.FC<IModalEditProfileProps> = ({
                 <Button
                   variant="contained"
                   color="success"
-                  sx={{ marginTop: "auto", marginBottom: "auto" }}
+                  sx={{
+                    marginTop: "auto",
+                    marginBottom: "auto",
+                    width: { xs: "45%", md: "auto", lg: "auto" },
+                  }}
                   size="large"
-                  onClick={(data) =>{
-                    onSubmit(data); 
+                  onClick={(data) => {
+                    onSubmit(data);
                     handleClose?.();
                   }}
                 >
@@ -135,13 +156,12 @@ export const ModalEditProfile: React.FC<IModalEditProfileProps> = ({
   );
 };
 
-
 const style = {
   position: "absolute",
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: 800,
+  width: { xs: "95%", md: "800px", lg: "800px" },
   bgcolor: "background.paper",
   boxShadow: 24,
   overFlow: "auto",
